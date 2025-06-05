@@ -26,19 +26,19 @@ https://physionet.org/content/sdoh-mimic/1.0.1/
 Overview:
 This project applies Natural Language Processing (NLP) to automatically identify Social Determinants of Health (SDoH) in unstructured clinical text. It uses a two-stage approach: pretraining a DistilBERT model on synthetic sentences and fine-tuning it on annotated real data (from MIMIC-III), with additional evaluation tools and attention visualizations.
 
-  bert_synthetic_original.py — Pretrains DistilBERT on synthetic sentences
-  bert_finetune_train50.py — Fine-tunes the pretrained model on 50% balanced MIMIC-III SDoH data
-  evaluate_real_data.py — Evaluates the fine-tuned model on a held-out clinical test set
-  heatmap.py — Visualizes attention maps for qualitative inspection
-  *.csv — Includes synthetic and real SDoH-labeled datasets
+- bert_synthetic_original.py — Pretrains DistilBERT on synthetic sentences
+- bert_finetune_train50.py — Fine-tunes the pretrained model on 50% balanced MIMIC-III SDoH data
+- evaluate_real_data.py — Evaluates the fine-tuned model on a held-out clinical test set
+- heatmap.py — Visualizes attention maps for qualitative inspection
+- *.csv — Includes synthetic and real SDoH-labeled datasets
 
 Information:
-  Multi-label classification for 6 SDoH factors:
-        housing, employment, transportation, relationship, support, parent
-  Binary prediction for each category using sigmoid outputs
-  Preprocessing and tokenization using HuggingFace Transformers
-  Training with HuggingFace Trainer API and PyTorch
-  Performance metrics: F1-score (micro/macro), accuracy, and attention heatmaps
+- Multi-label classification for 6 SDoH factors:
+    - housing, employment, transportation, relationship, support, parent
+- Binary prediction for each category using sigmoid outputs
+- Preprocessing and tokenization using HuggingFace Transformers
+- Training with HuggingFace Trainer API and PyTorch
+- Performance metrics: F1-score (micro/macro), accuracy, and attention heatmaps
 
 Install dependencies with:
   pip install transformers pandas scikit-learn torch matplotlib seaborn
@@ -57,8 +57,8 @@ To Run:
   python heatmap.py
 
 Additional Notes:
-All models are multi-label: each sentence can trigger multiple SDoH predictions.
-Synthetic data improves generalization for underrepresented categories.
-Best performance observed in employment, relationship, and support labels
-Ensure "model" is in the same directory
+- All models are multi-label: each sentence can trigger multiple SDoH predictions.
+- Synthetic data improves generalization for underrepresented categories.
+- Best performance observed in employment, relationship, and support labels
+- Ensure "model" is in the same directory
 
